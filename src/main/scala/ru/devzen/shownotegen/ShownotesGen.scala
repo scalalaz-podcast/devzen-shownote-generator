@@ -179,7 +179,7 @@ object ShownotesGen {
                 val title = (event \ "action" \ "data" \ "card" \ "name").values.asInstanceOf[String]
                 val cardId = (event \ "action" \ "data" \ "card" \ "id").values.asInstanceOf[String]
                 val urls = getThemeUrlsByCardId(cardId)
-                postMessageToGitter(title, urls)
+                //postMessageToGitter(title, urls)
               }
             }
           } catch {
@@ -202,6 +202,7 @@ object ShownotesGen {
     urls
   }
 
+  /*
   private def postMessageToGitter(title: String, urls: List[String]): Unit = {
     val urlsAsString = urls.mkString("\n")
     val jsonBody = compact(render("text" -> s"$title\n$urlsAsString"))
@@ -216,6 +217,7 @@ object ShownotesGen {
       println(s"Sent message to Gitter successfully")
     }
   }
+  */
 }
 
 object Constants {
@@ -225,7 +227,7 @@ object Constants {
   val TrelloRecordingStartedCardId = Properties.envOrElse("TRELLO_RECORDING_STARTED_CARD_ID", "")
   val TrelloBacklogListId = Properties.envOrElse("TRELLO_BACKLOG_LIST_ID", "")
 
-  val GitterDevzenRoomId = Properties.envOrElse("GITTER_DEVZEN_ROOM_ID", "")
+  // val GitterDevzenRoomId = Properties.envOrElse("GITTER_DEVZEN_ROOM_ID", "")
 }
 
 object UrlGenerator {
@@ -243,9 +245,11 @@ object UrlGenerator {
     s"https://api.trello.com/1/cards/$id?key=${Config.TrelloApplicationKey}&token=${Config.TrelloReadToken}"
   }
 
+  /*
   def postMessageToGitterChannel: String = {
     s"https://api.gitter.im/v1/rooms/${Constants.GitterDevzenRoomId}/chatMessages"
   }
+  */
 
 }
 
@@ -254,6 +258,6 @@ object Config {
   val TrelloApplicationKey = Properties.envOrElse("TRELLO_APP_KEY", "")
   val TrelloReadToken = Properties.envOrElse("TRELLO_READ_TOKEN", "")
 
-  val GitterAccessToken = Properties.envOrElse("GITTER_ACCESS_TOKEN", "")
+  // val GitterAccessToken = Properties.envOrElse("GITTER_ACCESS_TOKEN", "")
 
 }
