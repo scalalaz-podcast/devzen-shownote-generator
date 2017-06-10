@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/strobe/devzen-shownote-generator.svg?branch=scalalaz)](https://travis-ci.org/strobe/devzen-shownote-generator)
+
+
 # DevZen Shownote Generator
 
 ![DevZen themes](https://raw.githubusercontent.com/SBozhko/devzen-shownote-generator/master/dz_2.png)
